@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Car Price Prediction</title>
+  </head>
+  <style>
+    body.background {
+      background-image : url({{ url_for('static', filename = 'photos/cars.jpg')}});
+      background-size : 1550px 800px;
+      background-repeat: no-repeat;
+      background-blend-mode: overlay;
+      background-color: rgb(40,40,40);
+    }
+    hr.line{
+      border : 3px solid rgba(0,0,0);
+    }
+    div {
+      text-decoration-color: white;
+      text-align: center;
+      color: rgba(200,200,200);
+      width: 1300px;
+      height : 600px;
+      padding: 50px;
+      margin: 40px;
+      border-radius: 25px;
+      position: absolute;
+      background-color: rgba(50,50,90,0.4);
+      filter : contrast(10px);
+
+    }
+  </style>
+  <body class = "background">
+  <div>
+    <h1> Predict The Price Of A Used Car </h1>
+    <hr class = "line">
+    <form action = "{{ url_for('predict') }}" method = "post">
+      <label for = "km_driven"><font size = 4px> Enter Kilometers driven : </label>
+      <input type = "text" id = "km_driven" name = "km_driven"><br><br>
+      <label for = "mileage"><font size = 4px> Enter mileage in kmpl : </label>
+      <input type = "text" id = "mileage" name = "mileage"><br><br>
+      <label for = "engine"><font size = 4px> Enter Engine Capacity in CC : </label>
+      <input type = "text" id = "engine" name = "engine"><br><br>
+      <label for = "max_power"><font size = 4px> Enter Max power in bhp : </label>
+      <input type = "text" id = "max_power" name = "max_power"><br><br>
+      <label for = "seats"><font size = 4px> Enter number of seats : </label>
+      <input type = "text" id = "seats" name = "seats"><br><br>
+      <label for = "Car_age"><font size = 4px> Enter Car age : </label>
+      <input type = "text" id = "Car_age" name = "Car_age"><br><br>
+      <label for = "fuel">What is the fuel type : </label>
+      <select id = "fuel" name = "fuel">
+        <option value = "Petrol">Petrol</option>
+        <option value = "Diesel">Diesel</option>
+        <option value = "LPG">LPG</option>
+        <option value = "CNG">CNG</option>
+      </select><br><br>
+      <label for = "transmission"> What is the transmission type : </label>
+      <select id = "transmission" name = "transmission">
+        <option value = "Manual">Manual</option>
+        <option value = "Automatic">Automatic</option>
+      </select><br><br>
+      <label for = "owner"> Select what number owner of the car you are : </label>
+      <select id = "owner" name = "owner">
+        <option value = "First Owner">First owner</option>
+        <option value = "Second Owner">Second owner</option>
+        <option value = "Third Owner">Third owner</option>
+        <option value = "Fourth And Above Owner">Fourth +</option>
+        <option value = "Test Drive Car">Test Drive Car</option>
+      </select><br><br>
+      <label for = "seller_type">Which seller are you : </label>
+      <select id = "seller_type" name = "seller_type">
+        <option value = "Individual">Individual</option>
+        <option value = "Dealer">Dealer</option>
+        <option value = "Trustmark Dealer">Trustmark Dealer</option>
+      </select><br><br>
+      <input type = "submit" value = "Submit">
+    </form><br>
+    <font size = 5px>The Price at which you can sell your car is : {{ result }}
+  </div>
+  </body>
+</html>
