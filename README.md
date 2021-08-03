@@ -12,7 +12,7 @@ I chose a Random Forest Regressor model and then performed hyperparameter tuning
 The adjusted r-squared score was around 0.95 .
 
 ## 4.) API
-I created an API using Flask, and made a basic HTML webpage so that we can make predictions later by using the deployed webpage which can be found here : 
+I created an API using Flask, and made a basic HTML webpage so that we can make predictions later by using the deployed webpage which can be found here : https://used-car-price-predi.herokuapp.com/
 
 ## 5.) Deployment
 The model was deployed on heroku.
